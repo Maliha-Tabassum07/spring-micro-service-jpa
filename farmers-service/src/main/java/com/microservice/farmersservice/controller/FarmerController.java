@@ -40,4 +40,5 @@ public class FarmerController {
                         productClient.findByFarmer(farmer.getId())));
         return farmers;
     }
+    
 }
