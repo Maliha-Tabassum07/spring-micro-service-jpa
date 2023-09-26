@@ -28,6 +28,11 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
+    @PutMapping("/update/{id}")
+    public Boolean update(@PathVariable Integer id,@RequestBody ProductEntity productEntity) {
+        return productService.updateProduct(id,productEntity);
+    }
+
     @GetMapping("/farmer/{farmerId}")
     public List<ProductEntity> findByFarmer(@PathVariable Integer farmerId) {
         return productService.findByFarmer(farmerId);

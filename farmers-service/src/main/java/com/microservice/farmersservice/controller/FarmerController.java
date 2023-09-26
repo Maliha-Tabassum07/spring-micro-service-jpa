@@ -32,7 +32,7 @@ public class FarmerController {
         return farmerService.getFarmerById(id);
     }
     @GetMapping("/with-products")
-    public List<FarmerEntity> findAllWithStudent() {
+    public List<FarmerEntity> findAllWithProducts() {
         List<FarmerEntity> farmers
                 = farmerService.getFarmer();
         farmers.forEach(farmer ->

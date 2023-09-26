@@ -27,4 +27,15 @@ public class ProductService {
     public List<ProductEntity> findByFarmer(Integer farmerId) {
         return productRepository.findAllByFarmerId(farmerId).orElseThrow(()->new NullPointerException("Id not available"));
     }
+
+    public Boolean updateProduct(Integer id, ProductEntity productEntity) {
+        if (productRepository.existsById(id)){
+            ProductEntity updatedEntity=productRepository.findById(id).orElseThrow(()->new NullPointerException("Id not available"));
+            updatedEntity.setPrice(productEntity.getPrice());
+            updatedEntity.setQuantity(productEntity.getQuantity());
+            productRepository.save(updatedEntity);
+            return true;
+        }
+        return false;
+    }
 }

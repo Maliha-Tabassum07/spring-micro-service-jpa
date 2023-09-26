@@ -1,9 +1,10 @@
 package com.microservice.customerservice.entity;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class OrderEntity {
-    private Integer id;
+    private UUID id;
     private LocalDate deliveryDate;
     private String address;
     private Integer customerId;
@@ -12,11 +13,19 @@ public class OrderEntity {
     public OrderEntity() {
     }
 
-    public Integer getId() {
+    public OrderEntity(UUID id, LocalDate deliveryDate, String address, Integer customerId, Integer productId) {
+        this.id = id;
+        this.deliveryDate = deliveryDate;
+        this.address = address;
+        this.customerId = customerId;
+        this.productId = productId;
+    }
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
