@@ -2,6 +2,7 @@ package com.microservice.farmersservice.controller;
 
 import com.microservice.farmersservice.client.ProductClient;
 import com.microservice.farmersservice.entity.FarmerEntity;
+import com.microservice.farmersservice.entity.ProductEntity;
 import com.microservice.farmersservice.service.FarmerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,5 +41,10 @@ public class FarmerController {
                         productClient.findByFarmer(farmer.getId())));
         return farmers;
     }
-    
+
+    @PutMapping("/update-products/{prodId}")
+    public Boolean updateProducts(@PathVariable Integer prodId, @RequestBody ProductEntity productEntity) {
+        return productClient.update(prodId,productEntity);
+    }
+
 }
